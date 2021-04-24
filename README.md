@@ -8,13 +8,11 @@ Kelompok kami:<br>
   3. Kurnia Dwi Utami       20/456369/TK/50499
 <br><br>
 
-# # Modul 3 : Desain <em>Class</em>
+## Modul 3 : Desain <em>Class</em>
 &nbsp;&nbsp;&nbsp;&nbsp;Pada modul ini, kami mengimplementasikan <em>class diagram</em> yang telah kami buat. Dalam hal ini, karena pendekatan yang kami gunakan adalah aplikasi web dengan arsitektur MVC, implementasi dari tiap <em>class</em> dibentuk pada bagian Model.<br>
 Lampiran:<br>
 ![Dietine - Class Diagram of MVC Models](https://user-images.githubusercontent.com/72615421/115948050-4f0f8e00-a4fe-11eb-890b-030b0dbd6dd3.png)
 
-<br><br>
-
-<hr>
+<br><hr>
 This is the end of the README.<br>
 Thank you for your attention.
