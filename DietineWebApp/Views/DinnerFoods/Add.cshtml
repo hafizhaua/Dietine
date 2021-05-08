@@ -1,0 +1,49 @@
+﻿
+@model DietineWebApp.Models.DinnerFood
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Add Dinner Menu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DFDate" class="control-label"></label>
+                <input asp-for="DFDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" type="date" class="form-control" />
+                <span asp-validation-for="DFDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DFName" class="control-label"></label>
+                <input asp-for="DFName" class="form-control" />
+                <span asp-validation-for="DFName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DFCaloriePerOunce" class="control-label"></label>
+                <input asp-for="DFCaloriePerOunce" class="form-control" />
+                <span asp-validation-for="DFCaloriePerOunce" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DFGram" class="control-label"></label>
+                <input asp-for="DFGram" class="form-control" />
+                <span asp-validation-for="DFGram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

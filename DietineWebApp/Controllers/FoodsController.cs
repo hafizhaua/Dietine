@@ -58,7 +58,7 @@ namespace DietineWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(food);
+                _context.Food.Add(food);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

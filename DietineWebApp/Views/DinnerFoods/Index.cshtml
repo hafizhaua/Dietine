@@ -1,0 +1,72 @@
+﻿@model IEnumerable<DietineWebApp.Models.DinnerFood>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create Food</a><br />
+    <a asp-action="SeeList">Browse Food</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DFName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DFCaloriePerOunce)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DFGram)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DFTotalCalorie)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.DFDbFoodID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DFUserID)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.DFDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DFName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DFCaloriePerOunce)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DFGram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DFTotalCalorie)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.DFDbFoodID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DFUserID)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.DFDate.Date)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DinnerFoodID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DinnerFoodID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DinnerFoodID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

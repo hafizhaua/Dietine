@@ -4,14 +4,16 @@ using DietineWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DietineWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210507094519_AddingPropstoPlannedFood")]
+    partial class AddingPropstoPlannedFood
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,74 +41,6 @@ namespace DietineWebApp.Data.Migrations
                     b.ToTable("Activity");
                 });
 
-            modelBuilder.Entity("DietineWebApp.Models.BreakfastFood", b =>
-                {
-                    b.Property<int>("BreakfastFoodID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("BFCaloriePerOunce")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("BFDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("BFDbFoodID")
-                        .HasColumnType("int");
-
-                    b.Property<double>("BFGram")
-                        .HasColumnType("float");
-
-                    b.Property<string>("BFName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("BFTotalCalorie")
-                        .HasColumnType("float");
-
-                    b.Property<int>("BFUserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("BreakfastFoodID");
-
-                    b.ToTable("BreakfastFood");
-                });
-
-            modelBuilder.Entity("DietineWebApp.Models.DinnerFood", b =>
-                {
-                    b.Property<int>("DinnerFoodID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("DFCaloriePerOunce")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("DFDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("DFDbFoodID")
-                        .HasColumnType("int");
-
-                    b.Property<double>("DFGram")
-                        .HasColumnType("float");
-
-                    b.Property<string>("DFName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("DFTotalCalorie")
-                        .HasColumnType("float");
-
-                    b.Property<int>("DFUserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("DinnerFoodID");
-
-                    b.ToTable("DinnerFood");
-                });
-
             modelBuilder.Entity("DietineWebApp.Models.Food", b =>
                 {
                     b.Property<int>("FoodID")
@@ -127,38 +61,34 @@ namespace DietineWebApp.Data.Migrations
                     b.ToTable("Food");
                 });
 
-            modelBuilder.Entity("DietineWebApp.Models.LunchFood", b =>
+            modelBuilder.Entity("DietineWebApp.Models.PlannedBreakfastFood", b =>
                 {
-                    b.Property<int>("LunchFoodID")
+                    b.Property<int>("PlannedFoodID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("LFCaloriePerOunce")
+                    b.Property<double>("CaloriePerOunce")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("LFDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LFDbFoodID")
+                    b.Property<int>("DbFoodID")
                         .HasColumnType("int");
 
-                    b.Property<double>("LFGram")
+                    b.Property<double>("Gram")
                         .HasColumnType("float");
 
-                    b.Property<string>("LFName")
-                        .IsRequired()
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("LFTotalCalorie")
+                    b.Property<double>("TotalCalorie")
                         .HasColumnType("float");
 
-                    b.Property<int>("LFUserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
-                    b.HasKey("LunchFoodID");
+                    b.HasKey("PlannedFoodID");
 
-                    b.ToTable("LunchFood");
+                    b.ToTable("PlannedBreakfastFood");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

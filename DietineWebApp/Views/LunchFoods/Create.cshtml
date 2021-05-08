@@ -1,0 +1,63 @@
+﻿@model DietineWebApp.Models.LunchFood
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>LunchFood</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LFName" class="control-label"></label>
+                <input asp-for="LFName" class="form-control" />
+                <span asp-validation-for="LFName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LFCaloriePerOunce" class="control-label"></label>
+                <input asp-for="LFCaloriePerOunce" class="form-control" />
+                <span asp-validation-for="LFCaloriePerOunce" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LFGram" class="control-label"></label>
+                <input asp-for="LFGram" class="form-control" />
+                <span asp-validation-for="LFGram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LFTotalCalorie" class="control-label"></label>
+                <input asp-for="LFTotalCalorie" class="form-control" />
+                <span asp-validation-for="LFTotalCalorie" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="LFDbFoodID" class="control-label"></label>
+                <input asp-for="LFDbFoodID" class="form-control" />
+                <span asp-validation-for="LFDbFoodID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LFUserID" class="control-label"></label>
+                <input asp-for="LFUserID" class="form-control" />
+                <span asp-validation-for="LFUserID" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="LFDate" class="control-label"></label>
+                <input asp-for="LFDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" type="date" class="form-control" />
+                <span asp-validation-for="LFName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

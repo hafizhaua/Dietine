@@ -30,7 +30,22 @@ namespace DietineWebApp.Models
         [DisplayName("Sex")]
         public bool Sex { get; set; }
 
-        [DisplayName("BMR Value (kkal/day)")]
-        public double CalculationResult { get; set; }
+        [DisplayName("BMR Value (calories/day)")]
+        public double CalculationResult
+        {
+            get
+            {
+                if (Sex == true)
+                {
+                    return 10 * BodyWeight + 6.25 * BodyHeight - 5 * Age + 5;
+                }
+                else
+                {
+                    return 10 * BodyWeight + 6.25 * BodyHeight - 5 * Age - 161;
+                }
+            }
+
+            set { }
+        }
     }
 }

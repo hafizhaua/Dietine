@@ -24,11 +24,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="CalorieCalculator" asp-action="Index">BMR Calculator</a>
                         </li>
+                        @*<li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Foods" asp-action="Index">Food</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Activities" asp-action="Index">Activity</a>
+        </li>*@
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Foods" asp-action="Index">Food</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="BreakfastFoods" asp-action="Index">Breakfast</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Activities" asp-action="Index">Activity</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="LunchFoods" asp-action="Index">Lunch</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="DinnerFoods" asp-action="Index">Dinner</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
