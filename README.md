@@ -13,6 +13,14 @@ Kelompok kami:<br>
 Lampiran:<br>
 ![Dietine - Class Diagram of MVC Models](https://user-images.githubusercontent.com/72615421/115948050-4f0f8e00-a4fe-11eb-890b-030b0dbd6dd3.png)
 
+## Modul 5 : Akses Data
+Diagram basis data:<br>
+![Dietine - Food Database](https://user-images.githubusercontent.com/75866738/117528029-5d7ba080-affa-11eb-91d2-804a616fc342.jpg)
+![Dietine - Lunch Food Database](https://user-images.githubusercontent.com/75866738/117528035-679d9f00-affa-11eb-95b9-34bdb8a63655.jpg)
+![Dietine - Dinner Food Database](https://user-images.githubusercontent.com/75866738/117528038-69fff900-affa-11eb-9daf-bc7a259ccb54.jpg)
+![Dietine - Breakfast Food Database](https://user-images.githubusercontent.com/75866738/117528040-6bc9bc80-affa-11eb-878a-30d98e54f353.jpg)
+
+
 <br><hr>
 This is the end of the README.<br>
 Thank you for your attention.
