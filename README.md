@@ -14,6 +14,7 @@ Lampiran:<br>
 ![Dietine - Class Diagram of MVC Models](https://user-images.githubusercontent.com/72615421/115948050-4f0f8e00-a4fe-11eb-890b-030b0dbd6dd3.png)
 
 ## Modul 5 : Akses Data
+&nbsp;&nbsp;&nbsp;&nbsp;Pada modul ini, kami menyusun dan menintegrasikan basis data dengan aplikasi yang kami buat.<br>
 Diagram basis data:<br>
 ![Dietine - Food Database](https://user-images.githubusercontent.com/75866738/117528029-5d7ba080-affa-11eb-91d2-804a616fc342.jpg)<br>
 ![Dietine - Lunch Food Database](https://user-images.githubusercontent.com/75866738/117528035-679d9f00-affa-11eb-95b9-34bdb8a63655.jpg)<br>
