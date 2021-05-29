@@ -16,15 +16,15 @@ namespace DietineWebApp.Models
         [DisplayName("Name")]
         public string BFName { get; set; }
 
-        [DisplayName("Calories (/100 gram)")]
+        [DisplayName("Calorie Ratio (kkal/100 gram)")]
         public double BFCaloriePerOunce { get; set; }
-        [DisplayName("Mass (gram)")]
+        [DisplayName("Quantity (gram)")]
         public double BFGram { get; set; }
-        [DisplayName("Total (calories)")]
-        public double BFTotalCalorie { get => BFCaloriePerOunce * BFGram / 100; set { } }
+        [DisplayName("Total (kkal)")]
+        public double BFTotalCalorie { get => Math.Round(BFCaloriePerOunce * BFGram / 100, 3); set { } }
         public int BFDbFoodID { get; set; }
         public int BFUserID { get; set; }
         [DisplayName("Date")]
-        public DateTime BFDate { get; set; }
+        public string BFDate { get; set; }
     }
 }

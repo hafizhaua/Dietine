@@ -16,7 +16,7 @@ namespace DietineWebApp.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.5")
+                .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("DietineWebApp.Models.Activity", b =>
@@ -26,13 +26,13 @@ namespace DietineWebApp.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("CaloriePerMinute")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("ActivityName")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<double>("CalorieBurnedPerMinute")
+                        .HasColumnType("float");
 
                     b.HasKey("ActivityID");
 
@@ -49,8 +49,8 @@ namespace DietineWebApp.Data.Migrations
                     b.Property<double>("BFCaloriePerOunce")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("BFDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("BFDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("BFDbFoodID")
                         .HasColumnType("int");
@@ -83,8 +83,8 @@ namespace DietineWebApp.Data.Migrations
                     b.Property<double>("DFCaloriePerOunce")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("DFDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DFDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DFDbFoodID")
                         .HasColumnType("int");
@@ -137,8 +137,8 @@ namespace DietineWebApp.Data.Migrations
                     b.Property<double>("LFCaloriePerOunce")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("LFDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("LFDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("LFDbFoodID")
                         .HasColumnType("int");
@@ -159,6 +159,39 @@ namespace DietineWebApp.Data.Migrations
                     b.HasKey("LunchFoodID");
 
                     b.ToTable("LunchFood");
+                });
+
+            modelBuilder.Entity("DietineWebApp.Models.TakenActivity", b =>
+                {
+                    b.Property<int>("TakenActivityID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("TACalorieBurnedPerMinute")
+                        .HasColumnType("float");
+
+                    b.Property<string>("TADate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TADbID")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TAMinute")
+                        .HasColumnType("float");
+
+                    b.Property<string>("TAName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TATotalCaloriBurned")
+                        .HasColumnType("float");
+
+                    b.Property<int>("TAUserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("TakenActivityID");
+
+                    b.ToTable("TakenActivity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

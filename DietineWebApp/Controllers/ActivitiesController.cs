@@ -54,13 +54,13 @@ namespace DietineWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ActivityID,Name,CaloriePerMinute")] Activity activity)
+        public async Task<IActionResult> Create([Bind("ActivityID,ActivityName,CalorieBurnedPerMinute")] Activity activity)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(activity);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "MealPlans");
             }
             return View(activity);
         }
@@ -86,7 +86,7 @@ namespace DietineWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ActivityID,Name,CaloriePerMinute")] Activity activity)
+        public async Task<IActionResult> Edit(int id, [Bind("ActivityID,ActivityName,CalorieBurnedPerMinute")] Activity activity)
         {
             if (id != activity.ActivityID)
             {
@@ -111,7 +111,7 @@ namespace DietineWebApp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "MealPlans");
             }
             return View(activity);
         }
@@ -142,7 +142,7 @@ namespace DietineWebApp.Controllers
             var activity = await _context.Activity.FindAsync(id);
             _context.Activity.Remove(activity);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), "MealPlans");
         }
 
         private bool ActivityExists(int id)

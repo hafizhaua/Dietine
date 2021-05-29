@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DietineWebApp.Data;
 using DietineWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DietineWebApp.Controllers
 {
@@ -20,12 +21,14 @@ namespace DietineWebApp.Controllers
         }
 
         // GET: DinnerFoods
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.DinnerFood.ToListAsync());
         }
 
         // GET: DinnerFoods/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +47,7 @@ namespace DietineWebApp.Controllers
         }
 
         // GET: DinnerFoods/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -54,18 +58,20 @@ namespace DietineWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("DinnerFoodID,DFName,DFCaloriePerOunce,DFGram,DFTotalCalorie,DFDbFoodID,DFUserID,DFDate")] DinnerFood dinnerFood)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(dinnerFood);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "MealPlans");
             }
             return View(dinnerFood);
         }
 
         // GET: DinnerFoods/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,6 +90,7 @@ namespace DietineWebApp.Controllers
         // POST: DinnerFoods/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("DinnerFoodID,DFName,DFCaloriePerOunce,DFGram,DFTotalCalorie,DFDbFoodID,DFUserID,DFDate")] DinnerFood dinnerFood)
@@ -111,12 +118,13 @@ namespace DietineWebApp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "MealPlans");
             }
             return View(dinnerFood);
         }
 
         // GET: DinnerFoods/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +143,7 @@ namespace DietineWebApp.Controllers
         }
 
         // POST: DinnerFoods/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -142,14 +151,16 @@ namespace DietineWebApp.Controllers
             var dinnerFood = await _context.DinnerFood.FindAsync(id);
             _context.DinnerFood.Remove(dinnerFood);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), "MealPlans"); ;
         }
 
+        [Authorize]
         private bool DinnerFoodExists(int id)
         {
             return _context.DinnerFood.Any(e => e.DinnerFoodID == id);
         }
 
+        [Authorize]
         public async Task<IActionResult> Add(int? id)
         {
             if (id == null)
@@ -166,6 +177,13 @@ namespace DietineWebApp.Controllers
                 DFDbFoodID = ChosenFood.FoodID
             };
 
+            if (TempData.ContainsKey("date"))
+            {
+                DateTime tanggalDT = DateTime.Parse(TempData["date"].ToString());
+                PlannedFood.DFDate = tanggalDT.ToString("yyyy-MM-dd");
+            }
+            else PlannedFood.DFDate = DateTime.Now.ToString("yyyy-MM-dd");
+
             if (PlannedFood == null)
             {
                 return NotFound();
@@ -176,13 +194,15 @@ namespace DietineWebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Add([Bind("DinnerFoodID,DFName,DFCaloriePerOunce,DFGram,DFTotalCalorie,DFDbFoodID,DFUserID,DFDate")] DinnerFood PlannedFood)
         {
             if (ModelState.IsValid)
             {
+                string date = PlannedFood.DFDate;
                 _context.Add(PlannedFood);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "MealPlans", new { date = date });
             }
             return View(PlannedFood);
         }
@@ -194,6 +214,7 @@ namespace DietineWebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> AddNewFood([Bind("FoodID,Name,CaloriePerOunce")] Food food)
         {
             if (ModelState.IsValid)
@@ -204,6 +225,8 @@ namespace DietineWebApp.Controllers
             }
             return View(food);
         }
+
+        [Authorize]
         public async Task<IActionResult> SeeList()
         {
             return View(await _context.Food.ToListAsync());
