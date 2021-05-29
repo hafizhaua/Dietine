@@ -1,7 +1,8 @@
 # Dietine - Diet Web Application, Praktikum PBO 2021
 <em>Last update: April 24, 2021</em><br><br>
 Halo, halo, halo! Selamat datang di <em>repository</em> dari aplikasi kami, Dietine.
-<br><br>
+<br>![Dietine](https://user-images.githubusercontent.com/75866738/118963713-ee566280-b990-11eb-959e-9a0744a6adc4.jpg)
+<br>
 Kelompok kami:<br>
   1. Hafizha Ulinnuha Ahmad 20/456365/TK/50495
   2. Hapsari Prabandhari		20/456366/TK/50496
@@ -20,6 +21,8 @@ Diagram basis data:<br>
 ![Dietine - Lunch Food Database](https://user-images.githubusercontent.com/75866738/117528035-679d9f00-affa-11eb-95b9-34bdb8a63655.jpg)<br>
 ![Dietine - Dinner Food Database](https://user-images.githubusercontent.com/75866738/117528038-69fff900-affa-11eb-9daf-bc7a259ccb54.jpg)<br>
 ![Dietine - Breakfast Food Database](https://user-images.githubusercontent.com/75866738/117528040-6bc9bc80-affa-11eb-878a-30d98e54f353.jpg)
+
+
 
 
 <br><hr>
