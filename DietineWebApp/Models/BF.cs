@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace DietineWebApp.Models
 {
-    public class BreakfastFood
+    public class BF
     {
         [Key]
         public int BreakfastFoodID { get; set; }
-        [Required]
 
         [DisplayName("Name")]
+        [Required]
         public string BFName { get; set; }
 
         [DisplayName("Calories (/100 gram)")]
@@ -24,6 +24,7 @@ namespace DietineWebApp.Models
         public double BFTotalCalorie { get => BFCaloriePerOunce * BFGram / 100; set { } }
         public int BFDbFoodID { get; set; }
         public int BFUserID { get; set; }
+
         [DisplayName("Date")]
         public DateTime BFDate { get; set; }
     }

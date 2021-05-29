@@ -18,6 +18,5 @@ namespace DietineWebApp.Data
         public DbSet<DietineWebApp.Models.LunchFood> LunchFood { get; set; }
         public DbSet<DietineWebApp.Models.DinnerFood> DinnerFood { get; set; }
         public DbSet<DietineWebApp.Models.BreakfastFood> BreakfastFood { get; set; }
-        public DbSet<DietineWebApp.Models.TakenActivity> TakenActivity { get; set; }
     }
 }

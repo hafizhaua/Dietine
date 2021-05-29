@@ -1,11 +1,6 @@
-﻿@model IEnumerable<DietineWebApp.Models.Activity>
+﻿@model IEnumerable<DietineWebApp.Models.Food>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Index</h1>
-
+<h1>Pick your menu!</h1>
 
 <div class="container">
     <div class="form-group col-md-3">
@@ -21,8 +16,9 @@
 </div>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="AddNewFood">Add new data</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -30,7 +26,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CaloriePerMinute)
+                @Html.DisplayNameFor(model => model.CaloriePerOunce)
             </th>
             <th></th>
         </tr>
@@ -38,17 +34,16 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="searchList">
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CaloriePerMinute)
+                    @Html.DisplayFor(modelItem => item.CaloriePerOunce)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ActivityID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ActivityID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ActivityID">Delete</a>
+                    <a asp-action="Add" asp-route-id="@item.FoodID">Add to Breakfast</a> |
+                    <a asp-action="Details" asp-route-id="@item.FoodID">Details</a> |
                 </td>
             </tr>
         }

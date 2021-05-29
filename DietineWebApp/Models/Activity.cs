@@ -15,11 +15,11 @@ namespace DietineWebApp.Models
         [Required]
         [StringLength(20)]
         [DisplayName("Activity Name")]
-        public string ActivityName { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [Range(0, int.MaxValue, ErrorMessage = "Value must be greater than 0")]
         [DisplayName("Calorie burned per minute (kkal/min)")]
-        public double CalorieBurnedPerMinute{ get; set; }
+        public double CaloriePerMinute{ get; set; }
     }
 }

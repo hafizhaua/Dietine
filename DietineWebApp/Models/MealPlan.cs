@@ -7,11 +7,7 @@ namespace DietineWebApp.Models
 {
     public class MealPlan
     {
-        public string Tanggal { get; set; }
-        public IEnumerable<BreakfastFood> BreakfastList { get; set; }
-        public IEnumerable<LunchFood> LunchList { get; set; }
-        public IEnumerable<DinnerFood> DinnerList { get; set; }
-        public IEnumerable<TakenActivity> ActivityList { get; set; }
+        public DateTime Tanggal { get; set; }
         public double LiterAir { get; set; }
         public double TotalKalori { get; set; }
     }
