@@ -1,0 +1,49 @@
+﻿
+@model DietineWebApp.Models.TakenActivity
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Add Activity Menu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TADate" class="control-label"></label>
+                <input asp-for="TADate" value="@Model.TADate" type="date" class="form-control" />
+                <span asp-validation-for="TADate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TAName" class="control-label"></label>
+                <input asp-for="TAName" class="form-control" />
+                <span asp-validation-for="TAName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TACalorieBurnedPerMinute" class="control-label"></label>
+                <input asp-for="TACalorieBurnedPerMinute" class="form-control" />
+                <span asp-validation-for="TACalorieBurnedPerMinute" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TAMinute" class="control-label"></label>
+                <input asp-for="TAMinute" class="form-control" />
+                <span asp-validation-for="TAMinute" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DietineWebApp.Data;
 using DietineWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DietineWebApp.Controllers
 {
@@ -20,12 +21,14 @@ namespace DietineWebApp.Controllers
         }
 
         // GET: BreakfastFoods
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.BreakfastFood.ToListAsync());
         }
 
         // GET: BreakfastFoods/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +47,7 @@ namespace DietineWebApp.Controllers
         }
 
         // GET: BreakfastFoods/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -52,6 +56,7 @@ namespace DietineWebApp.Controllers
         // POST: BreakfastFoods/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BreakfastFoodID,BFName,BFCaloriePerOunce,BFGram,BFTotalCalorie,BFDbFoodID,BFUserID,BFDate")] BreakfastFood breakfastFood)
@@ -60,12 +65,13 @@ namespace DietineWebApp.Controllers
             {
                 _context.Add(breakfastFood);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "MealPlans");
             }
             return View(breakfastFood);
         }
 
         // GET: BreakfastFoods/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,6 +90,7 @@ namespace DietineWebApp.Controllers
         // POST: BreakfastFoods/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("BreakfastFoodID,BFName,BFCaloriePerOunce,BFGram,BFTotalCalorie,BFDbFoodID,BFUserID,BFDate")] BreakfastFood breakfastFood)
@@ -111,12 +118,13 @@ namespace DietineWebApp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "MealPlans");
             }
             return View(breakfastFood);
         }
 
         // GET: BreakfastFoods/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +143,7 @@ namespace DietineWebApp.Controllers
         }
 
         // POST: BreakfastFoods/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -142,14 +151,16 @@ namespace DietineWebApp.Controllers
             var breakfastFood = await _context.BreakfastFood.FindAsync(id);
             _context.BreakfastFood.Remove(breakfastFood);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), "MealPlans");
         }
 
+        [Authorize]
         private bool BreakfastFoodExists(int id)
         {
             return _context.BreakfastFood.Any(e => e.BreakfastFoodID == id);
         }
 
+        [Authorize]
         public async Task<IActionResult> Add(int? id)
         {
             if (id == null)
@@ -166,6 +177,13 @@ namespace DietineWebApp.Controllers
                 BFDbFoodID = ChosenFood.FoodID
             };
 
+            if (TempData.ContainsKey("date"))
+            {
+                DateTime tanggalDT = DateTime.Parse(TempData["date"].ToString());
+                PlannedFood.BFDate = tanggalDT.ToString("yyyy-MM-dd");
+            }
+            else PlannedFood.BFDate = DateTime.Now.ToString("yyyy-MM-dd");
+
             if (PlannedFood == null)
             {
                 return NotFound();
@@ -174,24 +192,28 @@ namespace DietineWebApp.Controllers
             return View(PlannedFood);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add([Bind("BreakfastFoodID,BFName,BFCaloriePerOunce,BFGram,BFTotalCalorie,BFDbFoodID,BFUserID,BFDate")] BreakfastFood PlannedFood)
         {
             if (ModelState.IsValid)
             {
+                string date = PlannedFood.BFDate;
                 _context.Add(PlannedFood);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "MealPlans", new { date = date });
             }
             return View(PlannedFood);
         }
 
+        [Authorize]
         public IActionResult AddNewFood()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddNewFood([Bind("FoodID,Name,CaloriePerOunce")] Food food)
@@ -204,7 +226,9 @@ namespace DietineWebApp.Controllers
             }
             return View(food);
         }
-        public async Task<IActionResult> SeeList()
+
+        [Authorize]
+        public async Task<IActionResult> SeeList(string tanggal)
         {
             return View(await _context.Food.ToListAsync());
         }

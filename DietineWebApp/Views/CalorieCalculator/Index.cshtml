@@ -1,47 +1,63 @@
 ﻿@model DietineWebApp.Models.CalorieCalculator
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
-<h4>Calorie Calculator</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Index">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            <div class="form-group">
-                <label asp-for="BodyWeight" class="control-label"></label>
-                <input asp-for="BodyWeight" class="form-control" />
-                <span asp-validation-for="BodyWeight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BodyHeight" class="control-label"></label>
-                <input asp-for="BodyHeight" class="form-control" />
-                <span asp-validation-for="BodyHeight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    @Html.RadioButtonFor(m => m.Sex, true) Men
-                    @Html.RadioButtonFor(m => m.Sex, false) Women
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="CalculationResult" class="control-label"></label>
-                <input asp-for="CalculationResult" class="form-control" disabled />
-                <span asp-validation-for="CalculationResult" class="text-danger"></span>
-            </div>
+<!-- Header -->
+<header class="ex-header-smaller">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <h1>BMR Calculator</h1>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</header> <!-- end of ex-header -->
+<!-- end of header -->
 
-            <div class="form-group">
-                <input type="submit" value="Calculate" class="btn btn-primary" />
+<div class="ex-basic-1 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="Index">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="form-group">
+                                <label asp-for="BodyWeight" class="control-label"></label>
+                                <input asp-for="BodyWeight" class="form-control" />
+                                <span asp-validation-for="BodyWeight" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="BodyHeight" class="control-label"></label>
+                                <input asp-for="BodyHeight" class="form-control" />
+                                <span asp-validation-for="BodyHeight" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Age" class="control-label"></label>
+                                <input asp-for="Age" class="form-control" />
+                                <span asp-validation-for="Age" class="text-danger"></span>
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    @Html.RadioButtonFor(m => m.Sex, true) Men
+                                    @Html.RadioButtonFor(m => m.Sex, false) Women
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CalculationResult" class="control-label"></label>
+                                <input asp-for="CalculationResult" class="form-control" disabled />
+                                <span asp-validation-for="CalculationResult" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Calculate" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
