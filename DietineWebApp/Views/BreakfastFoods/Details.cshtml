@@ -1,60 +1,79 @@
 ﻿@model DietineWebApp.Models.BreakfastFood
 
-@{
-    ViewData["Title"] = "Details";
-}
+@{ ViewData["Title"] = "Details"; }
 
-<h1>Details</h1>
 
-<div>
-    <h4>BreakfastFood</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BFName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BFName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BFCaloriePerOunce)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BFCaloriePerOunce)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BFGram)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BFGram)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BFTotalCalorie)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BFTotalCalorie)
-        </dd>
-        @*<dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BFDbFoodID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BFDbFoodID)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BFUserID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BFUserID)
-        </dd>*@
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BFDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BFDate)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.BreakfastFoodID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<!-- Header -->
+<header class="ex-header-smaller">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <h1>Details</h1>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</header> <!-- end of ex-header -->
+<!-- end of header -->
+
+<div class="ex-basic-1 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+
+                <div>
+                    <h4>BreakfastFood</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.BFName)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.BFName)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.BFCaloriePerOunce)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.BFCaloriePerOunce)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.BFGram)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.BFGram)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.BFTotalCalorie)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.BFTotalCalorie)
+                        </dd>
+                        @*<dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.BFDbFoodID)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.BFDbFoodID)
+                </dd>
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.BFUserID)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.BFUserID)
+                </dd>*@
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.BFDate)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.BFDate)
+                        </dd>
+                    </dl>
+                </div>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@Model.BreakfastFoodID">Edit</a> |
+                    <a asp-action="Index">Back to List</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

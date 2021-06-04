@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DietineWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace DietineWebApp.Controllers
 {
@@ -21,13 +22,15 @@ namespace DietineWebApp.Controllers
         public IActionResult Index(string date)
         {
             if(date == null) date = DateTime.Now.ToString("yyyy-MM-dd");
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             var mealPlan = new MealPlan()
             {
-                BreakfastList = _context.BreakfastFood,
-                LunchList = _context.LunchFood,
-                DinnerList = _context.DinnerFood,
-                ActivityList = _context.TakenActivity,
+                BreakfastList = _context.BreakfastFood.Where(q => q.BFUserID == currentUserID),
+                LunchList = _context.LunchFood.Where(q => q.LFUserID == currentUserID),
+                DinnerList = _context.DinnerFood.Where(q => q.DFUserID == currentUserID),
+                ActivityList = _context.TakenActivity.Where(q => q.TAUserID == currentUserID),
                 Tanggal = date
             };
 

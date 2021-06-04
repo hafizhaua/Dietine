@@ -1,41 +1,61 @@
 ﻿@model IEnumerable<DietineWebApp.Models.Activity>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
+<!-- Header -->
+<header class="ex-header-smaller">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <h1>Index</h1>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</header> <!-- end of ex-header -->
+<!-- end of header -->
 
-<h1>Index</h1>
+<div class="ex-basic-1 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ActivityName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CalorieBurnedPerMinute)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActivityName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CalorieBurnedPerMinute)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ActivityID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ActivityID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ActivityID">Delete</a>
-            </td>
-        </tr>
+
+                <p>
+                    <a asp-action="Create">Create New</a>
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ActivityName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CalorieBurnedPerMinute)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActivityName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CalorieBurnedPerMinute)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ActivityID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ActivityID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ActivityID">Delete</a>
+                </td>
+            </tr>
 }
-    </tbody>
-</table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

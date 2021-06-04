@@ -1,60 +1,76 @@
 ﻿@model DietineWebApp.Models.LunchFood
 
-@{
-    ViewData["Title"] = "Details";
-}
+@{ ViewData["Title"] = "Details"; }
 
-<h1>Details</h1>
+<!-- Header -->
+<header class="ex-header-smaller">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <h1>Details</h1>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</header> <!-- end of ex-header -->
+<!-- end of header -->
 
-<div>
-    <h4>LunchFood</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LFName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LFName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LFCaloriePerOunce)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LFCaloriePerOunce)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LFGram)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LFGram)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LFTotalCalorie)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LFTotalCalorie)
-        </dd>
-        @*<dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LFDbFoodID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LFDbFoodID)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LFUserID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LFUserID)
-        </dd>*@
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LFDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LFDate)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.LunchFoodID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="ex-basic-1 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <div>
+                    <h4>LunchFood</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.LFName)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.LFName)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.LFCaloriePerOunce)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.LFCaloriePerOunce)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.LFGram)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.LFGram)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.LFTotalCalorie)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.LFTotalCalorie)
+                        </dd>
+                        @*<dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.LFDbFoodID)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.LFDbFoodID)
+                </dd>
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.LFUserID)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.LFUserID)
+                </dd>*@
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.LFDate)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.LFDate)
+                        </dd>
+                    </dl>
+                </div>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@Model.LunchFoodID">Edit</a> |
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

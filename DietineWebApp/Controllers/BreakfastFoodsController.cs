@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DietineWebApp.Data;
 using DietineWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace DietineWebApp.Controllers
 {
@@ -170,11 +171,13 @@ namespace DietineWebApp.Controllers
 
             var ChosenFood = await _context.Food.FirstOrDefaultAsync(m => m.FoodID == id);
 
+            
+
             var PlannedFood = new BreakfastFood
             {
                 BFName = ChosenFood.Name,
                 BFCaloriePerOunce = ChosenFood.CaloriePerOunce,
-                BFDbFoodID = ChosenFood.FoodID
+                BFDbFoodID = ChosenFood.FoodID,
             };
 
             if (TempData.ContainsKey("date"))
@@ -199,7 +202,12 @@ namespace DietineWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                ClaimsPrincipal currentUser = this.User;
+                var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                PlannedFood.BFUserID = currentUserID;
+
                 string date = PlannedFood.BFDate;
+
                 _context.Add(PlannedFood);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index), "MealPlans", new { date = date });

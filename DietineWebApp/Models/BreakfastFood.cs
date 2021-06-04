@@ -23,7 +23,7 @@ namespace DietineWebApp.Models
         [DisplayName("Total (kkal)")]
         public double BFTotalCalorie { get => Math.Round(BFCaloriePerOunce * BFGram / 100, 3); set { } }
         public int BFDbFoodID { get; set; }
-        public int BFUserID { get; set; }
+        public string BFUserID { get; set; }
         [DisplayName("Date")]
         public string BFDate { get; set; }
     }

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DietineWebApp.Data;
 using DietineWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace DietineWebApp.Controllers
 {
@@ -198,6 +199,10 @@ namespace DietineWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                ClaimsPrincipal currentUser = this.User;
+                var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                takenActivity.TAUserID = currentUserID;
+
                 string date = takenActivity.TADate;
                 _context.Add(takenActivity);
                 await _context.SaveChangesAsync();

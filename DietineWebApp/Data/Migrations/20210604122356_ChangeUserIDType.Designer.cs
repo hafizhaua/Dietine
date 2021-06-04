@@ -4,14 +4,16 @@ using DietineWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DietineWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210604122356_ChangeUserIDType")]
+    partial class ChangeUserIDType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,8 +101,8 @@ namespace DietineWebApp.Data.Migrations
                     b.Property<double>("DFTotalCalorie")
                         .HasColumnType("float");
 
-                    b.Property<string>("DFUserID")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DFUserID")
+                        .HasColumnType("int");
 
                     b.HasKey("DinnerFoodID");
 
@@ -153,8 +155,8 @@ namespace DietineWebApp.Data.Migrations
                     b.Property<double>("LFTotalCalorie")
                         .HasColumnType("float");
 
-                    b.Property<string>("LFUserID")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("LFUserID")
+                        .HasColumnType("int");
 
                     b.HasKey("LunchFoodID");
 
@@ -186,8 +188,8 @@ namespace DietineWebApp.Data.Migrations
                     b.Property<double>("TATotalCaloriBurned")
                         .HasColumnType("float");
 
-                    b.Property<string>("TAUserID")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TAUserID")
+                        .HasColumnType("int");
 
                     b.HasKey("TakenActivityID");
 

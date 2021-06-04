@@ -22,7 +22,7 @@ namespace DietineWebApp.Models
         [DisplayName("Date")]
         public string TADate { get; set; }
         public int TADbID { get; set; }
-        public int TAUserID { get; set; }
+        public string TAUserID { get; set; }
 
     }
 }

@@ -1,62 +1,76 @@
 ﻿@model DietineWebApp.Models.DinnerFood
 
-@{
-    ViewData["Title"] = "Edit";
-}
+@{ ViewData["Title"] = "Edit"; }
+<!-- Header -->
+<header class="ex-header-smaller">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <h1>Edit Dinner</h1>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</header> <!-- end of ex-header -->
+<!-- end of header -->
 
-<h1>Edit</h1>
+<div class="ex-basic-1 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
 
-<h4>DinnerFood</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="DinnerFoodID" />
-            <div class="form-group">
-                <label asp-for="DFName" class="control-label"></label>
-                <input asp-for="DFName" class="form-control" />
-                <span asp-validation-for="DFName" class="text-danger"></span>
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="Edit">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="DinnerFoodID" />
+                            <div class="form-group">
+                                <label asp-for="DFName" class="control-label"></label>
+                                <input asp-for="DFName" class="form-control" />
+                                <span asp-validation-for="DFName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DFCaloriePerOunce" class="control-label"></label>
+                                <input asp-for="DFCaloriePerOunce" class="form-control" />
+                                <span asp-validation-for="DFCaloriePerOunce" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DFGram" class="control-label"></label>
+                                <input asp-for="DFGram" class="form-control" />
+                                <span asp-validation-for="DFGram" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DFTotalCalorie" class="control-label"></label>
+                                <input asp-for="DFTotalCalorie" class="form-control" />
+                                <span asp-validation-for="DFTotalCalorie" class="text-danger"></span>
+                            </div>
+                            @*<div class="form-group">
+                        <label asp-for="DFDbFoodID" class="control-label"></label>
+                        <input asp-for="DFDbFoodID" class="form-control" />
+                        <span asp-validation-for="DFDbFoodID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DFUserID" class="control-label"></label>
+                        <input asp-for="DFUserID" class="form-control" />
+                        <span asp-validation-for="DFUserID" class="text-danger"></span>
+                    </div>*@
+                            <div class="form-group">
+                                <label asp-for="DFDate" class="control-label"></label>
+                                <input asp-for="DFDate" class="form-control" />
+                                <span asp-validation-for="DFDate" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div>
+                    <a asp-action="Index">Back to List</a>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="DFCaloriePerOunce" class="control-label"></label>
-                <input asp-for="DFCaloriePerOunce" class="form-control" />
-                <span asp-validation-for="DFCaloriePerOunce" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DFGram" class="control-label"></label>
-                <input asp-for="DFGram" class="form-control" />
-                <span asp-validation-for="DFGram" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DFTotalCalorie" class="control-label"></label>
-                <input asp-for="DFTotalCalorie" class="form-control" />
-                <span asp-validation-for="DFTotalCalorie" class="text-danger"></span>
-            </div>
-            @*<div class="form-group">
-                <label asp-for="DFDbFoodID" class="control-label"></label>
-                <input asp-for="DFDbFoodID" class="form-control" />
-                <span asp-validation-for="DFDbFoodID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DFUserID" class="control-label"></label>
-                <input asp-for="DFUserID" class="form-control" />
-                <span asp-validation-for="DFUserID" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="DFDate" class="control-label"></label>
-                <input asp-for="DFDate" class="form-control" />
-                <span asp-validation-for="DFDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

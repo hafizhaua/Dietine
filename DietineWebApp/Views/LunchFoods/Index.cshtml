@@ -1,72 +1,92 @@
 ﻿@model IEnumerable<DietineWebApp.Models.LunchFood>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
-<h1>Index</h1>
+<!-- Header -->
+<header class="ex-header-smaller">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <h1>Index</h1>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</header> <!-- end of ex-header -->
+<!-- end of header -->
 
-<p>
-    <a asp-action="Create">Create Food</a><br />
-    <a asp-action="SeeList">Browse Food</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.LFName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LFCaloriePerOunce)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LFGram)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LFTotalCalorie)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.LFDbFoodID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LFUserID)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.LFDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LFName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LFCaloriePerOunce)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LFGram)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LFTotalCalorie)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.LFDbFoodID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LFUserID)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.LFDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.LunchFoodID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.LunchFoodID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.LunchFoodID">Delete</a>
-            </td>
-        </tr>
+<div class="ex-basic-1 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <p>
+                    <a asp-action="Create">Create Food</a><br />
+                    <a asp-action="SeeList">Browse Food</a>
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LFName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LFCaloriePerOunce)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LFGram)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LFTotalCalorie)
+                            </th>
+                            @*<th>
+                        @Html.DisplayNameFor(model => model.LFDbFoodID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LFUserID)
+                    </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.LFDate)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LFName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LFCaloriePerOunce)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LFGram)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LFTotalCalorie)
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.LFDbFoodID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LFUserID)
+        </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.LFDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.LunchFoodID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.LunchFoodID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.LunchFoodID">Delete</a>
+                </td>
+            </tr>
 }
-    </tbody>
-</table>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
