@@ -1,11 +1,16 @@
-﻿@{ ViewData["Title"] = "Privacy Policy"; }
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Confirm email";
+}
+
 
 <!-- Header -->
 <header class="ex-header-smaller">
     <div class="container">
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
-                <h1>@ViewData["Title"]</h1>
+                <h2>@ViewData["Title"]</h2>
             </div> <!-- end of col -->
         </div> <!-- end of row -->
     </div> <!-- end of container -->
@@ -16,9 +21,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
-                <p>For authorization, this app does not currently have a real email registered. So all data are all dummy and are being used for simulation only. We suggest you to not fill in your personal data to any forms from this application, so that you don't have to worry about your security.</p>
+                <p>Your account has been successfully registered. <a class="blue" asp-area="Identity" asp-page="/Account/Login">Log in</a> to start managing your diet!</p>
             </div>
         </div>
     </div>
 </div>
-

@@ -17,13 +17,14 @@
     </div> <!-- end of container -->
 </header> <!-- end of ex-header -->
 <!-- end of header -->
+
 <!-- Basic -->
 <div class="ex-form-1 pt-5 pb-5">
     <div class="container">
         <div class="row">
             <div class="col-xl-6 offset-xl-3">
                 <div class="text-box mt-5 mb-5">
-                    <p class="mb-4">You don't have a password? Then please <a class="blue" href="sign-up.html">Sign Up</a></p>
+                    <p class="mb-4">You haven't registered yet? Then please <a class="blue" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Sign Up</a></p>
 
                     <!-- Log In Form -->
                     <form id="account" method="post">
@@ -47,17 +48,17 @@
                         <div class="form-group">
                             <button type="submit" class="form-control-submit-button">Log In</button>
                         </div>
-                        <div class="form-group">
-                            <p>
+                        <!--<div class="form-group">-->
+                            @*<p>
                                 <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                            </p>
-                            <p>
+                            </p>*@
+                            @*<p>
                                 <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                            </p>
-                            <p>
+                            </p>*@
+                            @*<p>
                                 <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                            </p>
-                        </div>
+                            </p>*@
+                        <!--</div>-->
                     </form>
                     <!-- end of log in form -->
 

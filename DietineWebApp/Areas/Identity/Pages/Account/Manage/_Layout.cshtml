@@ -1,0 +1,45 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+    {
+        Layout = (string)parentLayout;
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+
+<!-- Header -->
+<header class="ex-header-smaller">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <h2>Manage your account</h2>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</header> <!-- end of ex-header -->
+<!-- end of header -->
+
+<div class="ex-basic-1 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <h4>Change your account settings</h4>
+                <hr />
+                <div class="row">
+                    <div class="col-md-3">
+                        <partial name="_ManageNav" />
+                    </div>
+                    <div class="col-md-9">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
