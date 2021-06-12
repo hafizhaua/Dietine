@@ -13,11 +13,11 @@ namespace DietineWebApp.Models
         public int TakenActivityID { get; set; }
         [DisplayName("Name")]
         public string TAName { get; set; }
-        [DisplayName("Burned Calorie (kkal/minute)")]
+        [DisplayName("Burned Calorie (kcal/minute)")]
         public double TACalorieBurnedPerMinute { get; set; }
         [DisplayName("Duration (minute)")]
         public double TAMinute { get; set; }
-        [DisplayName("Total Burned Calorie (kkal)")]
+        [DisplayName("Total Burned Calorie (kcal)")]
         public double TATotalCaloriBurned { get => Math.Round(-(TACalorieBurnedPerMinute * TAMinute), 3); set { } }
         [DisplayName("Date")]
         public string TADate { get; set; }

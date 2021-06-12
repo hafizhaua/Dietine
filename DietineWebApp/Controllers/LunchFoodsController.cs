@@ -21,55 +21,55 @@ namespace DietineWebApp.Controllers
             _context = context;
         }
 
-        // GET: LunchFoods
-        [Authorize]
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.LunchFood.ToListAsync());
-        }
+        //// GET: LunchFoods
+        //[Authorize]
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.LunchFood.ToListAsync());
+        //}
 
-        // GET: LunchFoods/Details/5
-        [Authorize]
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //// GET: LunchFoods/Details/5
+        //[Authorize]
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var lunchFood = await _context.LunchFood
-                .FirstOrDefaultAsync(m => m.LunchFoodID == id);
-            if (lunchFood == null)
-            {
-                return NotFound();
-            }
+        //    var lunchFood = await _context.LunchFood
+        //        .FirstOrDefaultAsync(m => m.LunchFoodID == id);
+        //    if (lunchFood == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(lunchFood);
-        }
+        //    return View(lunchFood);
+        //}
 
-        // GET: LunchFoods/Create
-        [Authorize]
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //// GET: LunchFoods/Create
+        //[Authorize]
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
-        // POST: LunchFoods/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize]
-        public async Task<IActionResult> Create([Bind("LunchFoodID,LFName,LFCaloriePerOunce,LFGram,LFTotalCalorie,LFDbFoodID,LFUserID,LFDate")] LunchFood lunchFood)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(lunchFood);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index), "MealPlans");
-            }
-            return View(lunchFood);
-        }
+        //// POST: LunchFoods/Create
+        //// To protect from overposting attacks, enable the specific properties you want to bind to.
+        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //[Authorize]
+        //public async Task<IActionResult> Create([Bind("LunchFoodID,LFName,LFCaloriePerOunce,LFGram,LFTotalCalorie,LFDbFoodID,LFUserID,LFDate")] LunchFood lunchFood)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(lunchFood);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index), "MealPlans");
+        //    }
+        //    return View(lunchFood);
+        //}
 
         // GET: LunchFoods/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -79,7 +79,11 @@ namespace DietineWebApp.Controllers
                 return NotFound();
             }
 
-            var lunchFood = await _context.LunchFood.FindAsync(id);
+            ClaimsPrincipal currentUser = User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            var lunchFood = await _context.LunchFood
+                .FirstOrDefaultAsync(m => m.LunchFoodID == id && m.LFUserID == currentUserID);
             if (lunchFood == null)
             {
                 return NotFound();
@@ -102,6 +106,7 @@ namespace DietineWebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                string date = lunchFood.LFDate;
                 try
                 {
                     _context.Update(lunchFood);
@@ -118,7 +123,7 @@ namespace DietineWebApp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index), "MealPlans");
+                return RedirectToAction(nameof(Index), "MealPlans", new { date = date });
             }
             return View(lunchFood);
         }
@@ -132,8 +137,11 @@ namespace DietineWebApp.Controllers
                 return NotFound();
             }
 
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+
             var lunchFood = await _context.LunchFood
-                .FirstOrDefaultAsync(m => m.LunchFoodID == id);
+                .FirstOrDefaultAsync(m => m.LunchFoodID == id && m.LFUserID == currentUserID);
             if (lunchFood == null)
             {
                 return NotFound();
@@ -149,9 +157,10 @@ namespace DietineWebApp.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var lunchFood = await _context.LunchFood.FindAsync(id);
+            string date = lunchFood.LFDate;
             _context.LunchFood.Remove(lunchFood);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index), "MealPlans");
+            return RedirectToAction(nameof(Index), "MealPlans", new { date = date });
         }
 
         [Authorize]
@@ -211,25 +220,25 @@ namespace DietineWebApp.Controllers
             return View(PlannedFood);
         }
 
-        [Authorize]
-        public IActionResult AddNewFood()
-        {
-            return View();
-        }
+        //[Authorize]
+        //public IActionResult AddNewFood()
+        //{
+        //    return View();
+        //}
 
-        [Authorize]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddNewFood([Bind("FoodID,Name,CaloriePerOunce")] Food food)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Food.Add(food);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(SeeList));
-            }
-            return View(food);
-        }
+        //[Authorize]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> AddNewFood([Bind("FoodID,Name,CaloriePerOunce")] Food food)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Food.Add(food);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(SeeList));
+        //    }
+        //    return View(food);
+        //}
 
         [Authorize]
         public async Task<IActionResult> SeeList()

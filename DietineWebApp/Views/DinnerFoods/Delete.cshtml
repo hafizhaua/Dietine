@@ -48,18 +48,6 @@
                         <dd class="col-sm-10">
                             @Html.DisplayFor(model => model.DFTotalCalorie)
                         </dd>
-                        @*<dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.DFDbFoodID)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.DFDbFoodID)
-                </dd>
-                <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.DFUserID)
-                </dt>
-                <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.DFUserID)
-                </dd>*@
                         <dt class="col-sm-2">
                             @Html.DisplayNameFor(model => model.DFDate)
                         </dt>
@@ -71,7 +59,7 @@
                     <form asp-action="Delete">
                         <input type="hidden" asp-for="DinnerFoodID" />
                         <input type="submit" value="Delete" class="btn btn-danger" /> |
-                        <a asp-action="Index">Back to List</a>
+                        <a asp-controller="MealPlans" asp-action="Index" asp-route-date="@Model.DFDate">Back to Meal Plan</a>
                     </form>
                 </div>
 

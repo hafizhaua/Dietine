@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Dietine</title>
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
 
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,7 +16,6 @@
 
     <!-- Favicon  -->
     <link rel="icon" href="~/images/favicon.png">
-
 </head>
 <body>
 
@@ -26,14 +24,11 @@
         <div class="container">
 
             <!-- Text Logo  -->
-            <a class="navbar-brand logo-text page-scroll" asp-controller="Home" asp-action="Index">Dietine</a>
+            @*<a class="navbar-brand logo-text page-scroll" asp-controller="Home" asp-action="Index">Dietine</a>*@
 
             <!-- Image Logo -->
-            @*<a class="navbar-brand logo-image" asp-area="" asp-controller="Home" asp-action="Index"><img src="images/logo.svg" alt="alternative"></a>*@
+            <a class="navbar-brand logo-image" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.svg" alt="Dietine"></a>
 
-            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -49,21 +44,11 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" asp-area="" asp-controller="MealPlans" asp-action="Index">Meal Plan</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Drop</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item page-scroll">Articles</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll">About Us</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" asp-controller="Home" asp-action="Index">Privacy Policy</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" asp-area=""asp-controller="Article" asp-action="Index">Article</a>
                     </li>
                     <partial name="_LoginPartial" />
                 </ul>
-                @*<span class="nav-item">
-                    <a class="btn-solid-sm page-scroll" href="sign-up.html">Sign Up</a>
-                </span>*@
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -82,41 +67,14 @@
                 <div class="col-lg-12">
                     <div class="footer-col first">
                         <h6>About Dietine</h6>
-                        <p class="p-small">Dietine description</p>
+                        <p class="p-small">
+                            Dietine is an application that will facilitate its users to help design and manage the diet program they are undergoing. Not only that, this application will also assist users in implementing a healthy lifestyle with a good diet through the healthy food information provided in this application.
+                        </p>
                     </div> <!-- end of footer-col -->
                     <div class="footer-col second">
                         <p class="p-small">Copyright © <a asp-controller="Home" asp-action="Index">Dietine</a></p>
-                        @*<ul class="list-unstyled li-space-lg p-small">
-                            <li>Important: <a href="terms.html">Terms & Conditions</a>, <a href="privacy.html">Privacy Policy</a></li>
-                            <li>Useful: <a href="#">Colorpicker</a>, <a href="#">Icon Library</a>, <a href="#">Illustrations</a></li>
-                            <li>Menu: <a class="page-scroll" href="#header">Home</a>, <a class="page-scroll" href="#intro">Intro</a>, <a class="page-scroll" href="#features">Features</a>, <a class="page-scroll" href="#details">Details</a></li>
-                        </ul>*@
                     </div> <!-- end of footer-col -->
                     <div class="footer-col third">
-                        @*<span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-facebook-f fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-twitter fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-pinterest-p fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-instagram fa-stack-1x"></i>
-                            </a>
-                        </span>*@
                         <p class="p-small">Send your lovely suggestions to <a href="mailto:contact@site.com"><strong>kontaknya@site.com</strong></a></p>
                     </div> <!-- end of footer-col -->
                 </div> <!-- end of col -->
@@ -146,62 +104,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>> <!-- Custom scripts -->
 
     @await RenderSectionAsync("Scripts", required: false)
-
-
-    <!--<header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Dietine</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CalorieCalculator" asp-action="Index">BMR Calculator</a>
-                        </li>-->
-    @*<li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Foods" asp-action="Index">Food</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Activities" asp-action="Index">Activity</a>
-        </li>*@
-    <!--<li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="MealPlans" asp-action="Index">Meal Plan</a>
-                    </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="BreakfastFoods" asp-action="Index">Breakfast</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="LunchFoods" asp-action="Index">Lunch</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="DinnerFoods" asp-action="Index">Dinner</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - DietineWebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    -->
 </body>
 </html>

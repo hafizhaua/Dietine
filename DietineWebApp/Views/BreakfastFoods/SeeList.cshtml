@@ -1,14 +1,16 @@
 ﻿@model IEnumerable<DietineWebApp.Models.Food>
 
+@{ ViewData["Title"] = "Food References"; }
+
 <!-- Header -->
 <header class="ex-header-smaller">
-   <div class="container">
-       <div class="row">
-           <div class="col-xl-10 offset-xl-1">
-               <h1>Pick your menu!</h1>
-           </div> <!-- end of col -->
-       </div> <!-- end of row -->
-   </div> <!-- end of container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <h1>Pick your menu!</h1>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
 </header> <!-- end of ex-header -->
 <!-- end of header -->
 
@@ -48,18 +50,19 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-            <tr class="searchList">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CaloriePerOunce)
-                </td>
-                <td>
-                    <a asp-action="Add" asp-route-id="@item.FoodID">Add to Breakfast</a> @*|
-                    <a asp-action="Details" asp-route-id="@item.FoodID">Details</a> |*@
-                </td>
-            </tr>}
+                            <tr class="searchList">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CaloriePerOunce)
+                                </td>
+                                <td>
+                                    <a asp-action="Add" asp-route-id="@item.FoodID">Add to Breakfast</a> @*|
+                                        <a asp-action="Details" asp-route-id="@item.FoodID">Details</a> |*@
+                                </td>
+                            </tr>
+}
                     </tbody>
                 </table>
             </div>

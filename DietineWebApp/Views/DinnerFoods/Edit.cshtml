@@ -38,24 +38,24 @@
                                 <input asp-for="DFGram" class="form-control" />
                                 <span asp-validation-for="DFGram" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label asp-for="DFTotalCalorie" class="control-label"></label>
                                 <input asp-for="DFTotalCalorie" class="form-control" />
                                 <span asp-validation-for="DFTotalCalorie" class="text-danger"></span>
                             </div>
-                            @*<div class="form-group">
-                        <label asp-for="DFDbFoodID" class="control-label"></label>
-                        <input asp-for="DFDbFoodID" class="form-control" />
-                        <span asp-validation-for="DFDbFoodID" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="DFUserID" class="control-label"></label>
-                        <input asp-for="DFUserID" class="form-control" />
-                        <span asp-validation-for="DFUserID" class="text-danger"></span>
-                    </div>*@
+                            <div class="form-group" hidden>
+                                <label asp-for="DFDbFoodID" class="control-label"></label>
+                                <input asp-for="DFDbFoodID" class="form-control" />
+                                <span asp-validation-for="DFDbFoodID" class="text-danger"></span>
+                            </div>
+                            <div class="form-group" hidden>
+                                <label asp-for="DFUserID" class="control-label"></label>
+                                <input asp-for="DFUserID" class="form-control" />
+                                <span asp-validation-for="DFUserID" class="text-danger"></span>
+                            </div>
                             <div class="form-group">
                                 <label asp-for="DFDate" class="control-label"></label>
-                                <input asp-for="DFDate" class="form-control" />
+                                <input asp-for="DFDate" type="date" class="form-control" />
                                 <span asp-validation-for="DFDate" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -66,7 +66,7 @@
                 </div>
 
                 <div>
-                    <a asp-action="Index">Back to List</a>
+                    <a asp-controller="MealPlans" asp-action="Index" asp-route-date="@Model.DFDate">Back to Meal Plan</a>
                 </div>
             </div>
         </div>

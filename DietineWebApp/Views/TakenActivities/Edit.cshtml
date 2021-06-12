@@ -39,24 +39,24 @@
                                 <input asp-for="TAMinute" class="form-control" />
                                 <span asp-validation-for="TAMinute" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label asp-for="TATotalCaloriBurned" class="control-label"></label>
                                 <input asp-for="TATotalCaloriBurned" class="form-control" />
                                 <span asp-validation-for="TATotalCaloriBurned" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label asp-for="TADate" class="control-label"></label>
                                 <input asp-for="TADate" class="form-control" />
                                 <span asp-validation-for="TADate" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label asp-for="TADbID" class="control-label"></label>
                                 <input asp-for="TADbID" class="form-control" />
                                 <span asp-validation-for="TADbID" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label asp-for="TAUserID" class="control-label"></label>
-                                <input asp-for="TAUserID" class="form-control" />
+                                <input asp-for="TAUserID" type="date" class="form-control" />
                                 <span asp-validation-for="TAUserID" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -67,7 +67,7 @@
                 </div>
 
                 <div>
-                    <a asp-action="Index">Back to List</a>
+                    <a asp-controller="MealPlans" asp-action="Index" asp-route-date="@Model.TADate">Back to Meal Plan</a>
                 </div>
             </div>
         </div>

@@ -18,7 +18,7 @@ namespace DietineWebApp.Models
         public string Name { get; set; }
 
         [Required]
-        [DisplayName("Calorie per Ounch (kkal/100gram)")]
+        [DisplayName("Calorie per Ounch (kcal/100gram)")]
         [Range(0, int.MaxValue, ErrorMessage = "Value must be greater than 0")]
         public double CaloriePerOunce { get; set; }
     }

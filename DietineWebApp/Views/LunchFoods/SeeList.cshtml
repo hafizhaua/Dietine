@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<DietineWebApp.Models.Food>
 
+@{ ViewData["Title"] = "Food References"; }
 
 
 <!-- Header -->
@@ -59,10 +60,9 @@
                 </td>
                 <td>
                     <a asp-action="Add" asp-route-id="@item.FoodID">Add to Lunch</a> @*|
-                    <a asp-action="Details" asp-route-id="@item.FoodID">Details</a> |*@
+                        <a asp-action="Details" asp-route-id="@item.FoodID">Details</a> |*@
                 </td>
-            </tr>
-}
+            </tr>}
                     </tbody>
                 </table>
             </div>

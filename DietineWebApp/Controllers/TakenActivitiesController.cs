@@ -21,55 +21,55 @@ namespace DietineWebApp.Controllers
             _context = context;
         }
 
-        [Authorize]
-        // GET: TakenActivities
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.TakenActivity.ToListAsync());
-        }
+        //[Authorize]
+        //// GET: TakenActivities
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.TakenActivity.ToListAsync());
+        //}
 
-        [Authorize]
-        // GET: TakenActivities/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //[Authorize]
+        //// GET: TakenActivities/Details/5
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var takenActivity = await _context.TakenActivity
-                .FirstOrDefaultAsync(m => m.TakenActivityID == id);
-            if (takenActivity == null)
-            {
-                return NotFound();
-            }
+        //    var takenActivity = await _context.TakenActivity
+        //        .FirstOrDefaultAsync(m => m.TakenActivityID == id);
+        //    if (takenActivity == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(takenActivity);
-        }
+        //    return View(takenActivity);
+        //}
 
-        [Authorize]
-        // GET: TakenActivities/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //[Authorize]
+        //// GET: TakenActivities/Create
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: TakenActivities/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TakenActivityID,TAName,TACalorieBurnedPerMinute,TAMinute,TATotalCaloriBurned,TADate,TADbID,TAUserID")] TakenActivity takenActivity)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(takenActivity);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index), "MealPlans");
-            }
-            return View(takenActivity);
-        }
+        //[Authorize]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("TakenActivityID,TAName,TACalorieBurnedPerMinute,TAMinute,TATotalCaloriBurned,TADate,TADbID,TAUserID")] TakenActivity takenActivity)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(takenActivity);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index), "MealPlans");
+        //    }
+        //    return View(takenActivity);
+        //}
 
         // GET: TakenActivities/Edit/5
         [Authorize]
@@ -80,7 +80,12 @@ namespace DietineWebApp.Controllers
                 return NotFound();
             }
 
-            var takenActivity = await _context.TakenActivity.FindAsync(id);
+            ClaimsPrincipal currentUser = User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            var takenActivity = await _context.TakenActivity
+                .FirstOrDefaultAsync(m => m.TakenActivityID == id && m.TAUserID == currentUserID);
+
             if (takenActivity == null)
             {
                 return NotFound();
@@ -103,6 +108,7 @@ namespace DietineWebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                string date = takenActivity.TADate;
                 try
                 {
                     _context.Update(takenActivity);
@@ -119,7 +125,7 @@ namespace DietineWebApp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index), "MealPlans");
+                return RedirectToAction(nameof(Index), "MealPlans", new { date = date });
             }
             return View(takenActivity);
         }
@@ -133,8 +139,12 @@ namespace DietineWebApp.Controllers
                 return NotFound();
             }
 
+            ClaimsPrincipal currentUser = User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+
             var takenActivity = await _context.TakenActivity
-                .FirstOrDefaultAsync(m => m.TakenActivityID == id);
+                .FirstOrDefaultAsync(m => m.TakenActivityID == id && m.TAUserID == currentUserID);
+
             if (takenActivity == null)
             {
                 return NotFound();
@@ -151,8 +161,9 @@ namespace DietineWebApp.Controllers
         {
             var takenActivity = await _context.TakenActivity.FindAsync(id);
             _context.TakenActivity.Remove(takenActivity);
+            string date = takenActivity.TADate;
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index), "MealPlans");
+            return RedirectToAction(nameof(Index), "MealPlans", new { date = date });
         }
 
         private bool TakenActivityExists(int id)
@@ -211,19 +222,25 @@ namespace DietineWebApp.Controllers
             return View(takenActivity);
         }
 
-        [Authorize]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddNewActivity([Bind("ActivityID,ActivityName,CalorieBurnedPerMinute")] Activity activity)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Activity.Add(activity);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(SeeList));
-            }
-            return View(activity);
-        }
+        //[Authorize]
+        //public IActionResult AddNewActivity()
+        //{
+        //    return View();
+        //}
+
+        //[Authorize]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> AddNewActivity([Bind("ActivityID,ActivityName,CalorieBurnedPerMinute")] Activity activity)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Activity.Add(activity);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(SeeList));
+        //    }
+        //    return View(activity);
+        //}
 
         [Authorize]
         public async Task<IActionResult> SeeList()

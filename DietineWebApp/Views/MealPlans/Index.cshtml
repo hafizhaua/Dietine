@@ -1,10 +1,6 @@
 ﻿@model DietineWebApp.Models.MealPlan
-@*@{
-        var formDate = @DateTime.Now.ToString("yyyy-MM-dd");
 
-        if (ViewData["FormDate"] != null)
-            formDate = ViewData["FormDate"].ToString();
-    }*@
+@{ ViewData["Title"] = "Meal Plan"; }
 
 <!-- Header -->
 <header class="ex-header-smaller">
@@ -17,7 +13,6 @@
     </div> <!-- end of container -->
 </header> <!-- end of ex-header -->
 <!-- end of header -->
-
 <!-- Basic -->
 <div class="ex-basic-1 pt-4">
     <div class="container">
@@ -42,7 +37,7 @@
                     <p>
                         <input class="btn btn-primary" type="submit" name="breakfast" value="Browse" />
                         @*<a asp-controller="BreakfastFoods" asp-action="Create">Create Food</a><br />
-                <a asp-controller="BreakfastFoods" asp-action="SeeList" asp-route-date="@Model.Tanggal">Browse Food</a>*@
+                            <a asp-controller="BreakfastFoods" asp-action="SeeList" asp-route-date="@Model.Tanggal">Browse Food</a>*@
                     </p>
                     <table class="table">
                         <thead>
@@ -51,20 +46,14 @@
                                     <p>Name</p>
                                 </th>
                                 <th>
-                                    <p>Calorie per 100 Gram</p>
+                                    <p>Calorie Ratio (kcal/100gr)</p>
                                 </th>
                                 <th>
-                                    <p>Gram Amount</p>
+                                    <p>Amount (gr)</p>
                                 </th>
                                 <th>
-                                    <p>Total Calorie</p>
+                                    <p>Total Calorie (kcal)</p>
                                 </th>
-                                @*<th>
-                            @Html.DisplayNameFor(model => model.BFDbFoodID)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.BFUserID)
-                        </th>*@
                                 <th class="collapse">
                                     <p>Date</p>
                                 </th>
@@ -87,21 +76,16 @@
                     <td class="total">
                         @Html.DisplayFor(modelItem => item.BFTotalCalorie)
                     </td>
-                    @*<td>
-                @Html.DisplayFor(modelItem => item.BFDbFoodID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BFUserID)
-            </td>*@
                     <td class="collapse">
                         @Html.DisplayFor(modelItem => item.BFDate)
                     </td>
                     <td>
-                        @*<a asp-action="Edit" asp-controller="BreakfastFoods" asp-route-id="@item.BreakfastFoodID">Edit</a> |
-                        <a asp-action="Details" asp-controller="BreakfastFoods" asp-route-id="@item.BreakfastFoodID">Details</a> |*@
+                        <a asp-action="Edit" asp-controller="BreakfastFoods" asp-route-id="@item.BreakfastFoodID">Edit</a> |
+                        @*<a asp-action="Details" asp-controller="BreakfastFoods" asp-route-id="@item.BreakfastFoodID">Details</a> |*@
                         <a asp-action="Delete" asp-controller="BreakfastFoods" asp-route-id="@item.BreakfastFoodID">Delete</a>
                     </td>
-                </tr>}
+                </tr>
+}
                         </tbody>
                     </table>
 
@@ -110,7 +94,7 @@
                     <p>
                         <input class="btn btn-primary" type="submit" name="lunch" value="Browse" />
                         @*<a asp-controller="LunchFoods" asp-action="Create">Create Food</a><br />
-                <a asp-controller="LunchFoods" asp-action="SeeList">Browse Food</a>*@
+                            <a asp-controller="LunchFoods" asp-action="SeeList">Browse Food</a>*@
                     </p>
                     <table class="table">
                         <thead>
@@ -119,20 +103,14 @@
                                     <p>Name</p>
                                 </th>
                                 <th>
-                                    <p>Calorie per 100 Gram</p>
+                                    <p>Calorie Ratio (kcal/100gr)</p>
                                 </th>
                                 <th>
-                                    <p>Gram Amount</p>
+                                    <p>Amount (gr)</p>
                                 </th>
                                 <th>
-                                    <p>Total Calorie</p>
+                                    <p>Total Calorie (kcal)</p>
                                 </th>
-                                @*<th>
-                            @Html.DisplayNameFor(model => model.BFDbFoodID)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.BFUserID)
-                        </th>*@
                                 <th class="collapse">
                                     <p>Date</p>
                                 </th>
@@ -155,21 +133,16 @@
                     <td class="total">
                         @Html.DisplayFor(modelItem => item.LFTotalCalorie)
                     </td>
-                    @*<td>
-                @Html.DisplayFor(modelItem => item.LFDbFoodID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LFUserID)
-            </td>*@
                     <td class="collapse">
                         @Html.DisplayFor(modelItem => item.LFDate)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-controller="LunchFoods" asp-route-id="@item.LunchFoodID">Edit</a> |
-                        <a asp-action="Details" asp-controller="LunchFoods" asp-route-id="@item.LunchFoodID">Details</a> |
+                        @*<a asp-action="Details" asp-controller="LunchFoods" asp-route-id="@item.LunchFoodID">Details</a> |*@
                         <a asp-action="Delete" asp-controller="LunchFoods" asp-route-id="@item.LunchFoodID">Delete</a>
                     </td>
-                </tr>}
+                </tr>
+}
                         </tbody>
                     </table>
 
@@ -179,7 +152,7 @@
                     <p>
                         <input class="btn btn-primary" type="submit" name="dinner" value="Browse" />
                         @*<a asp-controller="DinnerFoods" asp-action="Create">Create Food</a><br />
-                <a asp-controller="DinnerFoods" asp-action="SeeList">Browse Food</a>*@
+                            <a asp-controller="DinnerFoods" asp-action="SeeList">Browse Food</a>*@
                     </p>
                     <table class="table">
                         <thead>
@@ -188,20 +161,14 @@
                                     <p>Name</p>
                                 </th>
                                 <th>
-                                    <p>Calorie per 100 Gram</p>
+                                    <p>Calorie Ratio (kcal/100gr)</p>
                                 </th>
                                 <th>
-                                    <p>Gram Amount</p>
+                                    <p>Amount (gr)</p>
                                 </th>
                                 <th>
-                                    <p>Total Calorie</p>
+                                    <p>Total Calorie (kcal)</p>
                                 </th>
-                                @*<th>
-                            @Html.DisplayNameFor(model => model.BFDbFoodID)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.BFUserID)
-                        </th>*@
                                 <th class="collapse">
                                     <p>Date</p>
                                 </th>
@@ -224,21 +191,16 @@
                     <td class="total">
                         @Html.DisplayFor(modelItem => item.DFTotalCalorie)
                     </td>
-                    @*<td>
-                @Html.DisplayFor(modelItem => item.DFDbFoodID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DFUserID)
-            </td>*@
                     <td class="collapse">
                         @Html.DisplayFor(modelItem => item.DFDate)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-controller="DinnerFoods" asp-route-id="@item.DinnerFoodID">Edit</a> |
-                        <a asp-action="Details" asp-controller="DinnerFoods" asp-route-id="@item.DinnerFoodID">Details</a> |
+                        @*<a asp-action="Details" asp-controller="DinnerFoods" asp-route-id="@item.DinnerFoodID">Details</a> |*@
                         <a asp-action="Delete" asp-controller="DinnerFoods" asp-route-id="@item.DinnerFoodID">Delete</a>
                     </td>
-                </tr>}
+                </tr>
+}
                         </tbody>
                     </table>
 
@@ -247,7 +209,7 @@
                     <p>
                         <input class="btn btn-primary" type="submit" name="activity" value="Browse" />
                         @*<a asp-controller="TakenActivities" asp-action="Create">Create Activity</a><br />
-                <a asp-controller="TakenActivities" asp-action="SeeList">Browse Activity</a>*@
+                            <a asp-controller="TakenActivities" asp-action="SeeList">Browse Activity</a>*@
                     </p>
                     <table class="table">
                         <thead>
@@ -256,23 +218,17 @@
                                     <p>Name</p>
                                 </th>
                                 <th>
-                                    <p>Burned Calorie Ratio (kkal/minute)</p>
+                                    <p>Burned Calorie Ratio (kcal/minute)</p>
                                 </th>
                                 <th>
                                     <p>Duration (minute)</p>
                                 </th>
                                 <th>
-                                    <p>Total Calorie Burned (kkal)</p>
+                                    <p>Total Calorie Burned (kcal)</p>
                                 </th>
                                 <th class="collapse">
                                     <p>Date</p>
                                 </th>
-                                @*<th>
-                            @Html.DisplayNameFor(model => model.TADbID)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.TAUserID)
-                        </th>*@
                                 <th></th>
                             </tr>
                         </thead>
@@ -295,15 +251,9 @@
                     <td class="collapse">
                         @Html.DisplayFor(modelItem => item.TADate)
                     </td>
-                    @*<td>
-                @Html.DisplayFor(modelItem => item.TADbID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TAUserID)
-            </td>*@
                     <td>
-                        @*<a asp-action="Edit" asp-controller="TakenActivities" asp-route-id="@item.TakenActivityID">Edit</a> |
-                        <a asp-action="Details" asp-controller="TakenActivities" asp-route-id="@item.TakenActivityID">Details</a> |*@
+                        <a asp-action="Edit" asp-controller="TakenActivities" asp-route-id="@item.TakenActivityID">Edit</a> |
+                        @*<a asp-action="Details" asp-controller="TakenActivities" asp-route-id="@item.TakenActivityID">Details</a> |*@
                         <a asp-action="Delete" asp-controller="TakenActivities" asp-route-id="@item.TakenActivityID">Delete</a>
                     </td>
                 </tr>}
@@ -311,7 +261,7 @@
                     </table>
                 </form>
 
-                <h3>Total Calorie: <span id="accumulation">0</span></h3>
+                <h3>Total Calorie: <span id="accumulation">0</span> kcal</h3>
 
             </div> <!-- end of col -->
         </div> <!-- end of row -->

@@ -48,30 +48,12 @@
                         <dd class="col-sm-10">
                             @Html.DisplayFor(model => model.TATotalCaloriBurned)
                         </dd>
-                        <dt class="col-sm-2">
-                            @Html.DisplayNameFor(model => model.TADate)
-                        </dt>
-                        <dd class="col-sm-10">
-                            @Html.DisplayFor(model => model.TADate)
-                        </dd>
-                        <dt class="col-sm-2">
-                            @Html.DisplayNameFor(model => model.TADbID)
-                        </dt>
-                        <dd class="col-sm-10">
-                            @Html.DisplayFor(model => model.TADbID)
-                        </dd>
-                        <dt class="col-sm-2">
-                            @Html.DisplayNameFor(model => model.TAUserID)
-                        </dt>
-                        <dd class="col-sm-10">
-                            @Html.DisplayFor(model => model.TAUserID)
-                        </dd>
                     </dl>
 
                     <form asp-action="Delete">
                         <input type="hidden" asp-for="TakenActivityID" />
                         <input type="submit" value="Delete" class="btn btn-danger" /> |
-                        <a asp-action="Index">Back to List</a>
+                        <a asp-controller="MealPlans" asp-action="Index" asp-route-date="@Model.TADate">Back to Meal Plan</a>
                     </form>
                 </div>
             </div>

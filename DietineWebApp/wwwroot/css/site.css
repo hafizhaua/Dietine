@@ -630,6 +630,28 @@ input[type='checkbox'] {
         margin-bottom: 0.75rem;
     }
 
+.header-smaller {
+    padding-top: 7rem;
+    padding-bottom: 2.5rem;
+    background: url('../images/header-background-smaller.png') center center no-repeat;
+    background-size: cover;
+}
+    .header-smaller .text-container {
+            margin-bottom: 4rem;
+    }
+
+    .header-smaller .h1-large {
+            margin-bottom: 1.5rem;
+    }
+
+    .header-smaller .p-large {
+        margin-bottom: 2rem;
+    }
+
+    .header-smaller .btn-solid-lg {
+        margin-right: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
 
 /********************/
 /*    Customers     */

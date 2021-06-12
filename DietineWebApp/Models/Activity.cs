@@ -19,7 +19,7 @@ namespace DietineWebApp.Models
 
         [Required]
         [Range(0, int.MaxValue, ErrorMessage = "Value must be greater than 0")]
-        [DisplayName("Calorie burned per minute (kkal/min)")]
+        [DisplayName("Calorie burned per minute (kcal/min)")]
         public double CalorieBurnedPerMinute{ get; set; }
     }
 }
