@@ -222,25 +222,25 @@ namespace DietineWebApp.Controllers
             return View(takenActivity);
         }
 
-        //[Authorize]
-        //public IActionResult AddNewActivity()
-        //{
-        //    return View();
-        //}
+        [Authorize]
+        public IActionResult AddNewActivity()
+        {
+            return View();
+        }
 
-        //[Authorize]
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> AddNewActivity([Bind("ActivityID,ActivityName,CalorieBurnedPerMinute")] Activity activity)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Activity.Add(activity);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(SeeList));
-        //    }
-        //    return View(activity);
-        //}
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddNewActivity([Bind("ActivityID,ActivityName,CalorieBurnedPerMinute")] Activity activity)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Activity.Add(activity);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(SeeList));
+            }
+            return View(activity);
+        }
 
         [Authorize]
         public async Task<IActionResult> SeeList()

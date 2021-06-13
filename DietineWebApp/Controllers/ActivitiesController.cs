@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DietineWebApp.Data;
 using DietineWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DietineWebApp.Controllers
 {
@@ -19,39 +20,23 @@ namespace DietineWebApp.Controllers
             _context = context;
         }
 
+
         // GET: Activities
         public async Task<IActionResult> Index()
         {
             return View(await _context.Activity.ToListAsync());
         }
 
-        // GET: Activities/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var activity = await _context.Activity
-                .FirstOrDefaultAsync(m => m.ActivityID == id);
-            if (activity == null)
-            {
-                return NotFound();
-            }
-
-            return View(activity);
-        }
 
         // GET: Activities/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: Activities/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ActivityID,ActivityName,CalorieBurnedPerMinute")] Activity activity)
@@ -66,6 +51,7 @@ namespace DietineWebApp.Controllers
         }
 
         // GET: Activities/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,8 +68,7 @@ namespace DietineWebApp.Controllers
         }
 
         // POST: Activities/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ActivityID,ActivityName,CalorieBurnedPerMinute")] Activity activity)
@@ -117,6 +102,7 @@ namespace DietineWebApp.Controllers
         }
 
         // GET: Activities/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,6 +123,7 @@ namespace DietineWebApp.Controllers
         // POST: Activities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var activity = await _context.Activity.FindAsync(id);

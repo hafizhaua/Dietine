@@ -30,7 +30,7 @@ namespace DietineWebApp.Models
         [DisplayName("Sex")]
         public bool Sex { get; set; }
 
-        [DisplayName("BMR Value (calories/day)")]
+        [DisplayName("BMR Value (kcal/day)")]
         public double CalculationResult
         {
             get

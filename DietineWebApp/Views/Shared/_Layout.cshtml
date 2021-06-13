@@ -44,8 +44,15 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" asp-area="" asp-controller="MealPlans" asp-action="Index">Meal Plan</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" asp-area=""asp-controller="Article" asp-action="Index">Article</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reference</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item page-scroll" asp-area="" asp-controller="Article" asp-action="Index">Article</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" asp-area="" asp-controller="Foods" asp-action="Index">Food Calories</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" asp-area="" asp-controller="Activities" asp-action="Index">Activity Calories</a>
+                        </div>
                     </li>
                     <partial name="_LoginPartial" />
                 </ul>

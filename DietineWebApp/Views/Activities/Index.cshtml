@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<DietineWebApp.Models.Activity>
 
-@{ ViewData["Title"] = "Index"; }
+@{ ViewData["Title"] = "Activity Reference"; }
 <!-- Header -->
 <header class="ex-header-smaller">
     <div class="container">
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
-                <h1>Index</h1>
+                <h1>Activity References</h1>
             </div> <!-- end of col -->
         </div> <!-- end of row -->
     </div> <!-- end of container -->
@@ -17,10 +17,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
-
-
                 <p>
-                    <a asp-action="Create">Create New</a>
+                    <a asp-action="Create">Add new data</a>
                 </p>
                 <table class="table">
                     <thead>
@@ -46,7 +44,6 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ActivityID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ActivityID">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.ActivityID">Delete</a>
                 </td>
             </tr>

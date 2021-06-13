@@ -17,15 +17,6 @@ namespace DietineWebApp.Controllers
         [HttpPost]
         public IActionResult Index(CalorieCalculator calc)
         {
-            //if(calc.Sex == true)
-            //{
-            //    calc.CalculationResult = 10 * calc.BodyWeight+ 6.25 * calc.BodyHeight - 5 * calc.Age + 5;
-            //}
-            //else
-            //{
-            //    calc.CalculationResult = 10 * calc.BodyWeight + 6.25 * calc.BodyHeight - 5 * calc.Age - 161;
-            //}
-
             return View(calc);
         }
     }
