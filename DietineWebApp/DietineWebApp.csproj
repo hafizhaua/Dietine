@@ -5,9 +5,7 @@
     <UserSecretsId>aspnet-DietineWebApp-80956042-AE47-49BF-B968-EA99DE884F9D</UserSecretsId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\html\article 1.cshtml" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.5" />
@@ -21,8 +19,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\html\Articles\" />
-  </ItemGroup>
+
 
 </Project>

@@ -96,7 +96,7 @@ namespace DietineWebApp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index), "MealPlans");
+                return RedirectToAction(nameof(Index));
             }
             return View(activity);
         }
@@ -129,7 +129,7 @@ namespace DietineWebApp.Controllers
             var activity = await _context.Activity.FindAsync(id);
             _context.Activity.Remove(activity);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index), "MealPlans");
+            return RedirectToAction(nameof(Index));
         }
 
         private bool ActivityExists(int id)
