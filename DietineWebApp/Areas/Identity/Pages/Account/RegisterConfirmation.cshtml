@@ -24,12 +24,9 @@
                 @{
                     if (@Model.DisplayConfirmAccountLink)
                     {
-                                <p>
-                                    @*This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-        Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>*@
-
-                                    This app doesn't currently have a real email sender registered. Hence you can manually <a id="confirm-link" class="blue" href="@Model.EmailConfirmationUrl">confirm your email</a>.
-                                </p>
+                        <p>
+                            Finally, to use this account, you need to <a id="confirm-link" class="blue" href="@Model.EmailConfirmationUrl">confirm your registration</a>.
+                        </p>
                     }
                     else
                     {
