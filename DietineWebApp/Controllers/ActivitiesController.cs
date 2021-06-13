@@ -45,7 +45,7 @@ namespace DietineWebApp.Controllers
             {
                 _context.Add(activity);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index), "MealPlans");
+                return RedirectToAction(nameof(Index));
             }
             return View(activity);
         }

@@ -195,7 +195,7 @@ namespace DietineWebApp.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> SeeList(string tanggal)
+        public async Task<IActionResult> SeeList()
         {
             return View(await _context.Food.ToListAsync());
         }

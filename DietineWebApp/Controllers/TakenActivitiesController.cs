@@ -21,56 +21,6 @@ namespace DietineWebApp.Controllers
             _context = context;
         }
 
-        //[Authorize]
-        //// GET: TakenActivities
-        //public async Task<IActionResult> Index()
-        //{
-        //    return View(await _context.TakenActivity.ToListAsync());
-        //}
-
-        //[Authorize]
-        //// GET: TakenActivities/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var takenActivity = await _context.TakenActivity
-        //        .FirstOrDefaultAsync(m => m.TakenActivityID == id);
-        //    if (takenActivity == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(takenActivity);
-        //}
-
-        //[Authorize]
-        //// GET: TakenActivities/Create
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        // POST: TakenActivities/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[Authorize]
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("TakenActivityID,TAName,TACalorieBurnedPerMinute,TAMinute,TATotalCaloriBurned,TADate,TADbID,TAUserID")] TakenActivity takenActivity)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(takenActivity);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index), "MealPlans");
-        //    }
-        //    return View(takenActivity);
-        //}
-
         // GET: TakenActivities/Edit/5
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
@@ -94,8 +44,6 @@ namespace DietineWebApp.Controllers
         }
 
         // POST: TakenActivities/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]

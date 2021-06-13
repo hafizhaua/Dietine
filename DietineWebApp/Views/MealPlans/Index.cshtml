@@ -36,8 +36,6 @@
                     <h3>Breakfast</h3>
                     <p>
                         <input class="btn btn-primary" type="submit" name="breakfast" value="Browse" />
-                        @*<a asp-controller="BreakfastFoods" asp-action="Create">Create Food</a><br />
-                            <a asp-controller="BreakfastFoods" asp-action="SeeList" asp-route-date="@Model.Tanggal">Browse Food</a>*@
                     </p>
                     <table class="table">
                         <thead>
@@ -81,7 +79,6 @@
                     </td>
                     <td>
                         <a asp-action="Edit" asp-controller="BreakfastFoods" asp-route-id="@item.BreakfastFoodID">Edit</a> |
-                        @*<a asp-action="Details" asp-controller="BreakfastFoods" asp-route-id="@item.BreakfastFoodID">Details</a> |*@
                         <a asp-action="Delete" asp-controller="BreakfastFoods" asp-route-id="@item.BreakfastFoodID">Delete</a>
                     </td>
                 </tr>
@@ -93,8 +90,6 @@
 
                     <p>
                         <input class="btn btn-primary" type="submit" name="lunch" value="Browse" />
-                        @*<a asp-controller="LunchFoods" asp-action="Create">Create Food</a><br />
-                            <a asp-controller="LunchFoods" asp-action="SeeList">Browse Food</a>*@
                     </p>
                     <table class="table">
                         <thead>
@@ -138,7 +133,6 @@
                     </td>
                     <td>
                         <a asp-action="Edit" asp-controller="LunchFoods" asp-route-id="@item.LunchFoodID">Edit</a> |
-                        @*<a asp-action="Details" asp-controller="LunchFoods" asp-route-id="@item.LunchFoodID">Details</a> |*@
                         <a asp-action="Delete" asp-controller="LunchFoods" asp-route-id="@item.LunchFoodID">Delete</a>
                     </td>
                 </tr>
@@ -151,8 +145,6 @@
 
                     <p>
                         <input class="btn btn-primary" type="submit" name="dinner" value="Browse" />
-                        @*<a asp-controller="DinnerFoods" asp-action="Create">Create Food</a><br />
-                            <a asp-controller="DinnerFoods" asp-action="SeeList">Browse Food</a>*@
                     </p>
                     <table class="table">
                         <thead>
@@ -196,7 +188,6 @@
                     </td>
                     <td>
                         <a asp-action="Edit" asp-controller="DinnerFoods" asp-route-id="@item.DinnerFoodID">Edit</a> |
-                        @*<a asp-action="Details" asp-controller="DinnerFoods" asp-route-id="@item.DinnerFoodID">Details</a> |*@
                         <a asp-action="Delete" asp-controller="DinnerFoods" asp-route-id="@item.DinnerFoodID">Delete</a>
                     </td>
                 </tr>
@@ -204,12 +195,10 @@
                         </tbody>
                     </table>
 
-                    <h1>Your Activities</h1>
+                    <h3>Activity</h3>
 
                     <p>
                         <input class="btn btn-primary" type="submit" name="activity" value="Browse" />
-                        @*<a asp-controller="TakenActivities" asp-action="Create">Create Activity</a><br />
-                            <a asp-controller="TakenActivities" asp-action="SeeList">Browse Activity</a>*@
                     </p>
                     <table class="table">
                         <thead>
@@ -253,7 +242,6 @@
                     </td>
                     <td>
                         <a asp-action="Edit" asp-controller="TakenActivities" asp-route-id="@item.TakenActivityID">Edit</a> |
-                        @*<a asp-action="Details" asp-controller="TakenActivities" asp-route-id="@item.TakenActivityID">Details</a> |*@
                         <a asp-action="Delete" asp-controller="TakenActivities" asp-route-id="@item.TakenActivityID">Delete</a>
                     </td>
                 </tr>}

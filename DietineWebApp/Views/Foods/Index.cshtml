@@ -50,19 +50,19 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-            <tr class="searchList">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CaloriePerOunce)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.FoodID">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@item.FoodID">Delete</a>
-                </td>
-            </tr>
-}
+                            <tr class="searchList">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CaloriePerOunce)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.FoodID">Edit</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.FoodID">Delete</a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
