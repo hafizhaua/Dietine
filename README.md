@@ -40,6 +40,9 @@ In order to run this application locally, we use:
 3. Compile the project<br><br>
 ![image](https://user-images.githubusercontent.com/72615421/121808075-893d1680-cc89-11eb-8e1f-085e6674036c.png)<br>
 
+4. Done! Now you can explore the app<br><br>
+![image](https://user-images.githubusercontent.com/72615421/121814690-f316e980-cca4-11eb-8cda-134932d86193.png)<br>
+
 ## Error Handling When Preparation
 - <em>"A database operation failed while processing the request"</em> when accessing a page<br><br>
 ![image](https://user-images.githubusercontent.com/72615421/121813382-649f6980-cc9e-11eb-957d-63f05b20b700.png)<br><br>
