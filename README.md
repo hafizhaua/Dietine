@@ -1,30 +1,52 @@
-# Dietine - Diet Web Application, Praktikum PBO 2021
-<em>Last update: April 24, 2021</em><br><br>
-Halo, halo, halo! Selamat datang di <em>repository</em> dari aplikasi kami, Dietine.
-<br>![Dietine](https://user-images.githubusercontent.com/75866738/118963713-ee566280-b990-11eb-959e-9a0744a6adc4.jpg)
-<br>
-Kelompok kami:<br>
-  1. Hafizha Ulinnuha Ahmad 20/456365/TK/50495
-  2. Hapsari Prabandhari		20/456366/TK/50496
-  3. Kurnia Dwi Utami       20/456369/TK/50499
-<br><br>
 
-## Modul 3 : Desain <em>Class</em>
-&nbsp;&nbsp;&nbsp;&nbsp;Pada modul ini, kami mengimplementasikan <em>class diagram</em> yang telah kami buat. Dalam hal ini, karena pendekatan yang kami gunakan adalah aplikasi web dengan arsitektur MVC, implementasi dari tiap <em>class</em> dibentuk pada bagian Model.<br>
-Lampiran:<br>
-![Dietine - Class Diagram of MVC Models](https://user-images.githubusercontent.com/72615421/115948050-4f0f8e00-a4fe-11eb-890b-030b0dbd6dd3.png)
+# Dietine
+<em>Last update: 13 June, 2021</em><br><br>
+Dietine is an application that will facilitate 
+its users to help design and manage the diet program 
+they are undergoing. Not only that, this application 
+will also assist users in implementing a healthy 
+lifestyle with a good diet through the healthy 
+food information provided.
 
-## Modul 5 : Akses Data
-&nbsp;&nbsp;&nbsp;&nbsp;Pada modul ini, kami menyusun dan menintegrasikan <em>database</em> dengan aplikasi yang kami buat. <em>Database</em> yang telah kami susun yaitu <em>food database</em>, <em>lunch database</em>, <em>dinner database</em>, dan <em>breakfast database</em>. Setiap <em>food</em> memiliki properti berupa nama dan jumlah kalori per ons. Sementara pada masing masing <em>lunch food</em>, <em>dinner food</em>, dan <em>breakfast food</em>, memiliki properti tambahan berupa total massa(dalam gram) dan jumlah total kalori, serta beberapa properti untuk <em>indexing</em>.<br>
-Diagram basis data:<br>
-![Dietine - Food Database](https://user-images.githubusercontent.com/75866738/117528029-5d7ba080-affa-11eb-91d2-804a616fc342.jpg)<br>
-![Dietine - Lunch Food Database](https://user-images.githubusercontent.com/75866738/117528035-679d9f00-affa-11eb-95b9-34bdb8a63655.jpg)<br>
-![Dietine - Dinner Food Database](https://user-images.githubusercontent.com/75866738/117528038-69fff900-affa-11eb-9daf-bc7a259ccb54.jpg)<br>
-![Dietine - Breakfast Food Database](https://user-images.githubusercontent.com/75866738/117528040-6bc9bc80-affa-11eb-878a-30d98e54f353.jpg)
+## Authors
 
+- [Hafizha Ulinnuha Ahmad](https://github.com/hafizhaua) ( 20/456365/TK/50495 )
+- [Hapsari Prabandhari](https://github.com/Hapsarip) ( 20/456366/TK/50496 )
+- [Kurnia Dwi Utami](https://github.com/kurniakdu) ( 20/456369/TK/50499 )
 
+## Features
 
+- Meal Planner
+- BMR Calculator
+- Articles
 
-<br><hr>
-This is the end of the README.<br>
-Thank you for your attention.
+## Software Installation 
+
+In order to run this application locally, we use:
+1. [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+2. [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+  
+## Run Locally via Visual Studio 2019
+
+1. Clone the project<br><br>
+![image](https://user-images.githubusercontent.com/72615421/121808059-79bdcd80-cc89-11eb-825f-cc68624437ca.png)<br>
+
+2. Update-Database in Package Manager Console<br>
+```bash
+  PM> Update-Database
+```
+![image](https://user-images.githubusercontent.com/72615421/121808070-86422600-cc89-11eb-8d8f-a3c9530287d4.png)<br>
+
+3. Compile the project<br><br>
+![image](https://user-images.githubusercontent.com/72615421/121808075-893d1680-cc89-11eb-8e1f-085e6674036c.png)<br>
+
+### Error Handling
+
+- Database already exists<br><br>
+![image](https://user-images.githubusercontent.com/72615421/121808369-b1794500-cc8a-11eb-97c5-c4daa373440d.png)<br><br>
+Solution: It seems like because there is still a LocalDB instance running. We can make it stop and delete it via Package Manager Console and finally update the database.
+```bash
+  PM> sqllocaldb stop
+  PM> sqllocaldb delete
+  PM> Update-Database
+```
